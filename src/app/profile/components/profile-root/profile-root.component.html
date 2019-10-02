@@ -1,0 +1,39 @@
+<a routerLink="/"><h1>User skills</h1></a>
+
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="panel">
+        <div class="panel-nav">
+          <ul class="tab tab-block">
+            <li class="tab-item" routerLinkActive="active">
+              <a routerLink="/user/profile">profile</a>
+            </li>
+            <li class="tab-item" routerLinkActive="active">
+              <a routerLink="/user/skills">skills</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel-body content-container">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column col-auto">
+      <div class="panel sidebar bg-secondary">
+        <div class="panel-header">
+          <div class="panel-title h4">Info</div>
+        </div>
+
+        <div class="panel-body">
+          <app-profile-info class="mb-48"></app-profile-info>
+
+          <app-profile-skills></app-profile-skills>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

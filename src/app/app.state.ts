@@ -1,12 +1,11 @@
 import { State } from '@ngxs/store';
-import { ThingsState } from './things/state/things.state';
 
 class AppStateModel {
 
 }
 
 @State<AppStateModel>({
-  name: 'app_state',
+  name: 'app',
   defaults: {},
 })
 export class AppState {}

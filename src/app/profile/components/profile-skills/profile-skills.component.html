@@ -1,0 +1,24 @@
+<ng-container *ngIf="skills$ | async as skills">
+  <ng-container *ngIf="isEditable; else readonlyTpl">
+    <form [formGroup]="formGroup">
+      <table>
+        <tr formArrayName="skills"
+            *ngFor="let skillItem of skillsControl.controls;">
+          <td>{{ skillItem.value.name }}</td>
+          <td><input [formControl]="skillItem.controls.value" class="form-input" type="number"></td>
+        </tr>
+      </table>
+    </form>
+  </ng-container>
+
+  <ng-template #readonlyTpl>
+    <div class="label">Skills</div>
+
+    <table>
+      <tr *ngFor="let skillItem of skills">
+        <td>{{ skillItem.name }}</td>
+        <td class="text-ellipsis">{{ skillItem.value }}</td>
+      </tr>
+    </table>
+  </ng-template>
+</ng-container>

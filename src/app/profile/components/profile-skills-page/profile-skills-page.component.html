@@ -1,0 +1,7 @@
+<ng-container *ngIf="info$ | async as info">
+  <div class="h4 title">Skills for <span class="text-error">{{ info.userName || '[anonymous]'}}</span></div>
+</ng-container>
+
+<app-profile-skills
+  [isEditable]="true">
+</app-profile-skills>
