@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start:prod": "npm run build && npm run serve",
+    "build": "ng build --prod=true",
+    "serve": "php -S localhost:4201 -t ./dist/ngxs-train",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
