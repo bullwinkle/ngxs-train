@@ -12,9 +12,9 @@
   </ng-container>
 
   <ng-template #readonlyTpl>
-    <div class="label">Skills</div>
+    <div class="label text-bold">Skills</div>
 
-    <table>
+    <table class="table">
       <tr *ngFor="let skillItem of skills">
         <td>{{ skillItem.name }}</td>
         <td class="text-ellipsis">{{ skillItem.value }}</td>
