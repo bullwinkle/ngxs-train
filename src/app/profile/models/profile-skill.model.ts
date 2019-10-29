@@ -5,7 +5,8 @@ export class ProfileSkillModel {
 
   constructor (data: Partial<ProfileSkillModel> = {}) {
     Object.assign(this, data, {
-      id: `id_${Math.floor(Math.random() * 1000000)}`,
+      id: data.id || `id_${Math.floor(Math.random() * 1000000)}`,
+      value: +(data.value || 0)
     });
   }
 }

@@ -27,7 +27,7 @@ export class ProfileState {
   }
 
   @Action(ProfileActions.UpdateSkills)
-  async updateSkills ({ getState, patchState }: StateContext<ProfileStateModel>, { payload }: ProfileActions.UpdateSkills) {
+  updateSkills ({ getState, patchState }: StateContext<ProfileStateModel>, { payload }: ProfileActions.UpdateSkills) {
     patchState({ skills: payload });
   }
 

@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.8",
     "@ngxs-labs/async-storage-plugin": "0.0.1",
     "@ngxs-labs/dispatch-decorator": "^2.1.0",
+    "@ngxs-labs/select-snapshot": "^1.1.0",
     "@ngxs/router-plugin": "^3.5.1",
     "@ngxs/store": "^3.5.1-dev.master-f879371",
     "rxjs": "~6.5.3",

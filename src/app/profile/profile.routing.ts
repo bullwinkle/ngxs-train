@@ -4,11 +4,15 @@ import { PageNotFoundComponent } from '../shared/components/page-not-found/page-
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileRootComponent } from './components/profile-root/profile-root.component';
 import { ProfileSkillsPageComponent } from './components/profile-skills-page/profile-skills-page.component';
+import { SkillsResolver } from './services/skills-resolver.service';
 
 const routes: Route[] = [
   {
     path: '',
     component: ProfileRootComponent,
+    resolve: {
+      skills: SkillsResolver,
+    },
     children: [
       {
         path: 'profile',
@@ -39,5 +43,8 @@ const routes: Route[] = [
   exports: [
     RouterModule,
   ],
+  providers: [
+    SkillsResolver,
+  ],
 })
-export class ProfileRoutingModule { }
+export class ProfileRoutingModule {}

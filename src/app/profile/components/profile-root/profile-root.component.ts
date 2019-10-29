@@ -8,11 +8,8 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class ProfileRootComponent implements OnInit {
 
-  constructor(
-    private profileService: ProfileService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.profileService.loadSkills();
   }
 }

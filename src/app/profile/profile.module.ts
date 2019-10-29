@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 
@@ -11,7 +12,7 @@ import { ProfileSkillsPageComponent } from './components/profile-skills-page/pro
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 
 import { ProfileService } from './services/profile.service';
-import { ProfileApiService } from './services/profileApiService';
+import { ProfileApiService } from './services/profile.api.service';
 import { ProfileState } from './state/profile.state';
 
 
@@ -25,6 +26,7 @@ import { ProfileState } from './state/profile.state';
   ],
   imports: [
     SharedModule,
+    HttpClientModule,
     ProfileRoutingModule,
     NgxsModule.forFeature([ProfileState]),
   ],

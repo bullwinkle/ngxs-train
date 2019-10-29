@@ -1,12 +1,14 @@
 import { Inject } from '@angular/core';
 import { Dispatch } from '@ngxs-labs/dispatch-decorator';
-import { Select, Store } from '@ngxs/store';
+import { SelectSnapshot } from '@ngxs-labs/select-snapshot';
+import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
+
 import { ProfileActions } from '../actions/profile.actions';
 import { ProfileInfoModel } from '../models/profile-Info.model';
 import { ProfileSkillModel } from '../models/profile-skill.model';
 import { ProfileState } from '../state/profile.state';
-import { ProfileApiService } from './profileApiService';
+import { ProfileApiService } from './profile.api.service';
 
 @Inject({
   provideIn: 'root',
@@ -14,7 +16,6 @@ import { ProfileApiService } from './profileApiService';
 export class ProfileService {
   constructor (
     private profileApiService: ProfileApiService,
-    private store: Store,
   ) {
   }
 
@@ -24,15 +25,17 @@ export class ProfileService {
   @Select(ProfileState.getSkills)
   skills$: Observable<ProfileSkillModel[]>;
 
+  @SelectSnapshot(ProfileState.getSkills)
+  skills: ProfileSkillModel[];
+
+  async getSkills (): Promise<ProfileSkillModel[]> {
+    return this.skills || this.loadSkills()
+      .then(() => this.skills);
+  }
+
   @Dispatch()
   async loadSkills () {
-    const existingSkills = this.store.selectSnapshot(state => state.profile.skills);
-
-    if (existingSkills) {
-      return true;
-    } else {
-      return new ProfileActions.UpdateSkills(await this.profileApiService.getSkills());
-    }
+    return new ProfileActions.UpdateSkills(await this.profileApiService.getSkills());
   }
 
   @Dispatch()
