@@ -1,8 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
+import { SharedModule } from '@shared';
 
-import { SharedModule } from '../../shared';
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileRootComponent } from './components/profile-root/profile-root.component';

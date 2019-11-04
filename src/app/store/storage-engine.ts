@@ -1,6 +1,6 @@
 import { AsyncStorageEngineProxy, NgxsStoragePluginOptions } from '@ngxs-labs/async-storage-plugin';
 
-export class AsyncStorageEngine extends AsyncStorageEngineProxy {
+export class AsyncLocalStorageEngine extends AsyncStorageEngineProxy {
   constructor () {
     super(localStorage);
   }

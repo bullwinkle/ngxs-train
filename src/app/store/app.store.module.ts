@@ -11,14 +11,14 @@ import { environment } from '../../environments/environment';
 
 import { AppState } from './app.state';
 import { CustomRouterStateSerializer } from './router/router-state-serializer';
-import { AsyncStorageEngine, storagePluginOptions } from './storage-engine';
+import { AsyncLocalStorageEngine, storagePluginOptions } from './storage-engine';
 
 @NgModule({
   imports: [
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production,
     }),
-    NgxsAsyncStoragePluginModule.forRoot(AsyncStorageEngine, storagePluginOptions),
+    NgxsAsyncStoragePluginModule.forRoot(AsyncLocalStorageEngine, storagePluginOptions),
     NgxsRouterPluginModule.forRoot(),
     NgxsDispatchPluginModule.forRoot(),
     NgxsSelectSnapshotModule.forRoot(),

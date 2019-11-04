@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from '@shared';
 
-import { FEATURES_CONFIG, PageNotFoundComponent } from '../../shared';
+import { PROFILE_ROUTE } from '../features-routes';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileRootComponent } from './components/profile-root/profile-root.component';
 import { ProfileSkillsPageComponent } from './components/profile-skills-page/profile-skills-page.component';
@@ -31,7 +32,7 @@ const routes: Route[] = [
       {
         path: '**',
         data: {
-          home: `/${FEATURES_CONFIG.profile.url}`,
+          home: `/${PROFILE_ROUTE.path}`,
         },
         component: PageNotFoundComponent,
       },
