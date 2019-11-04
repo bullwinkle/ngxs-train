@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { AppStoreModule } from './store/app.store.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared';
+import { AppStoreModule } from './store';
 
 @NgModule({
   declarations: [

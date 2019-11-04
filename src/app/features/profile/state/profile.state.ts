@@ -1,18 +1,14 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { ProfileActions } from '../actions/profile.actions';
 import { ProfileInfoModel } from '../models/profile-Info.model';
 import { ProfileSkillModel } from '../models/profile-skill.model';
-
-export class ProfileStateModel {
-  info: ProfileInfoModel;
-  skills: ProfileSkillModel[];
-}
+import { ProfileStateModel } from './profile-state.model';
+import { ProfileActions } from './profile.actions';
 
 @State<ProfileStateModel>({
   name: 'profile',
   defaults: {
     info: new ProfileInfoModel(),
-    skills: null,
+    skills: undefined,
   },
 })
 export class ProfileState {

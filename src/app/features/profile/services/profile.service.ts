@@ -4,10 +4,9 @@ import { SelectSnapshot } from '@ngxs-labs/select-snapshot';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
-import { ProfileActions } from '../actions/profile.actions';
 import { ProfileInfoModel } from '../models/profile-Info.model';
 import { ProfileSkillModel } from '../models/profile-skill.model';
-import { ProfileState } from '../state/profile.state';
+import { ProfileActions, ProfileState } from '../state';
 import { ProfileApiService } from './profile.api.service';
 
 @Inject({

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from '../shared/components/page-not-found/page-not-found.component';
+
+import { FEATURES_CONFIG, PageNotFoundComponent } from '../../shared';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileRootComponent } from './components/profile-root/profile-root.component';
 import { ProfileSkillsPageComponent } from './components/profile-skills-page/profile-skills-page.component';
@@ -15,6 +16,11 @@ const routes: Route[] = [
     },
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'profile',
+      },
+      {
         path: 'profile',
         component: ProfilePageComponent,
       },
@@ -23,12 +29,10 @@ const routes: Route[] = [
         component: ProfileSkillsPageComponent,
       },
       {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'profile',
-      },
-      {
         path: '**',
+        data: {
+          home: `/${FEATURES_CONFIG.profile.url}`,
+        },
         component: PageNotFoundComponent,
       },
     ],

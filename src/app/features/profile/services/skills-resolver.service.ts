@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+
 import { ProfileSkillModel } from '../models/profile-skill.model';
 import { ProfileService } from './profile.service';
 

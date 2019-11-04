@@ -2,10 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
+
 import { switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
 import { ProfileSkillModel } from '../../models/profile-skill.model';
 import { ProfileService } from '../../services/profile.service';
-import { ProfileState } from '../../state/profile.state';
+import { ProfileState } from '../../state';
 
 @Component({
   selector: 'app-profile-skills',

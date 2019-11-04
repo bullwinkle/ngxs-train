@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { environment } from '../environments/environment';
 
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { environment } from '../environments/environment';
+import { FEATURES_CONFIG, PageNotFoundComponent } from './shared';
 
 const routes: Route[] = [
   {
-    path: 'user',
-    loadChildren: () => import('./profile/profile.module').then((exports) => exports.ProfileModule),
-  },
-  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'user',
+    redirectTo: FEATURES_CONFIG.defaultFeature.url,
+  },
+  {
+    path: FEATURES_CONFIG.profile.url,
+    loadChildren: FEATURES_CONFIG.profile.loadModule,
   },
   {
     path: '**',

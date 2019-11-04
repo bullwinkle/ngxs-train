@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+
 import { ProfileSkillModel } from '../models/profile-skill.model';
 
 @Inject({

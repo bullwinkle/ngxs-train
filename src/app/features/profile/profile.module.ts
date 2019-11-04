@@ -2,19 +2,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 
-import { SharedModule } from '../shared/shared.module';
-import { ProfileRoutingModule } from './profile.routing';
-
+import { SharedModule } from '../../shared';
+import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
-import { ProfileSkillsComponent } from './components/profile-skills/profile-skills.component';
 import { ProfileRootComponent } from './components/profile-root/profile-root.component';
 import { ProfileSkillsPageComponent } from './components/profile-skills-page/profile-skills-page.component';
-import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
-
-import { ProfileService } from './services/profile.service';
+import { ProfileSkillsComponent } from './components/profile-skills/profile-skills.component';
+import { ProfileRoutingModule } from './profile.routing';
 import { ProfileApiService } from './services/profile.api.service';
-import { ProfileState } from './state/profile.state';
-
+import { ProfileService } from './services/profile.service';
+import { profileState } from './state';
 
 @NgModule({
   declarations: [
@@ -28,7 +25,7 @@ import { ProfileState } from './state/profile.state';
     SharedModule,
     HttpClientModule,
     ProfileRoutingModule,
-    NgxsModule.forFeature([ProfileState]),
+    NgxsModule.forFeature(profileState),
   ],
   providers: [
     ProfileService,

@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { switchMap, take, tap, withLatestFrom } from 'rxjs/operators';
+
 import { ProfileInfoModel } from '../../models/profile-Info.model';
 import { ProfileService } from '../../services/profile.service';
-import { ProfileState } from '../../state/profile.state';
+import { ProfileState } from '../../state';
 
 @Component({
   selector: 'app-profile-info',

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
+
 import { ProfileInfoModel } from '../../models/profile-Info.model';
-import { ProfileState } from '../../state/profile.state';
+import { ProfileState } from '../../state';
 
 @Component({
   selector: 'app-profile-skills-page',
