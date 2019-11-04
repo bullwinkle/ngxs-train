@@ -6,8 +6,6 @@ const routes: Route[] = [
   {
     path: '',
     component: BlogPageComponent,
-    resolve: {
-    },
   },
 ];
 

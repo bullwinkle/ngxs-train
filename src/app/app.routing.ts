@@ -2,20 +2,24 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
 import { environment } from '../environments/environment';
-import { FEATURES_CONFIG, PageNotFoundComponent } from './shared';
+import { FEATURES_CONFIG } from './features-config';
+import { PageNotFoundComponent } from './shared';
 
-const { defaultFeature, ...ALL_FEATURES } = FEATURES_CONFIG;
 
 const routes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: defaultFeature.url,
+    redirectTo: FEATURES_CONFIG.profile.url,
   },
-  ...Object.values(ALL_FEATURES).map(FEATURE_CONFIG => ({
-    path: FEATURE_CONFIG.url,
-    loadChildren: FEATURE_CONFIG.loadModule,
-  })),
+  {
+    path: FEATURES_CONFIG.profile.url,
+    loadChildren: () => import('./features/profile/profile.module').then(exports => exports.ProfileModule),
+  },
+  {
+    path: FEATURES_CONFIG.blog.url,
+    loadChildren: () => import('./features/blog/blog.module').then(exports => exports.BlogModule),
+  },
   {
     path: '**',
     component: PageNotFoundComponent,

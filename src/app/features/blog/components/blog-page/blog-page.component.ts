@@ -4,7 +4,7 @@ import { FEATURES_CONFIG } from '../../../../features-config';
 @Component({
   selector: 'app-blog-page',
   templateUrl: './blog-page.component.html',
-  styleUrls: ['./blog-page.component.scss'],
+  styleUrls: ['./blog-page.component.scss', '../../../../shared/styles/theme-default.scss'],
 })
 export class BlogPageComponent implements OnInit {
 

@@ -6,11 +6,6 @@ import { RouterStateModel } from './router-state.model';
 export class RouterStateSelectors {
   // base selector
   @Selector([RouterState])
-  static state ({ state }: RouterStateOuterModel<RouterStateModel>) {
-    return state;
-  }
-
-  @Selector([RouterState])
   static data ({ state: { data } }: RouterStateOuterModel<RouterStateModel>) {
     return data;
   }

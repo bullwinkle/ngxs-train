@@ -6,14 +6,23 @@ export class AsyncStorageEngine extends AsyncStorageEngineProxy {
   }
 }
 
-export const asyncStorageOptions: NgxsStoragePluginOptions = {
-  /* Exclude 'router' state from  NgxsRouterPlugin (fix redirect to root) */
-  serialize ({ router, ...resultState }) {
+export function serialize ({ router, ...resultState }): string {
+  try {
     return JSON.stringify(resultState);
-  },
+  } catch (error) {
+    console.error(error);
+    return '';
+  }
+}
 
-  deserialize (jsonString) {
+export function deserialize (jsonString: string): any {
+  try {
     const { router: _, ...resultState } = JSON.parse(jsonString);
     return resultState;
-  },
-};
+  } catch (error) {
+    console.error(error);
+    return {};
+  }
+}
+
+export const storagePluginOptions: NgxsStoragePluginOptions = { serialize, deserialize };

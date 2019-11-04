@@ -1,6 +1,7 @@
-// Example of project-name.scss
-// Define variables to override default ones
+// Variables and mixins
+@import "./app/shared/styles/context";
 
-// Import full Spectre source code
-@import "~spectre.css/src/spectre";
-@import "~spectre.css/src/spectre-icons";
+/*! Spectre.css v#{$version} | MIT License | github.com/picturepan2/spectre */
+// Reset and dependencies
+@import "~spectre.css/src/normalize";
+@import "~spectre.css/src/base";
