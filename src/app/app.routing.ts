@@ -4,16 +4,18 @@ import { Route, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { FEATURES_CONFIG, PageNotFoundComponent } from './shared';
 
+const { defaultFeature, ...ALL_FEATURES } = FEATURES_CONFIG;
+
 const routes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: FEATURES_CONFIG.defaultFeature.url,
+    redirectTo: defaultFeature.url,
   },
-  {
-    path: FEATURES_CONFIG.profile.url,
-    loadChildren: FEATURES_CONFIG.profile.loadModule,
-  },
+  ...Object.values(ALL_FEATURES).map(FEATURE_CONFIG => ({
+    path: FEATURE_CONFIG.url,
+    loadChildren: FEATURE_CONFIG.loadModule,
+  })),
   {
     path: '**',
     component: PageNotFoundComponent,
