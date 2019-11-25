@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkouting...
+      uses: actions/checkout@v1
+    - name: Installing...
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm ci
+    - name: Building...
+      run: npx ng build --prod --baseHref=/ngxs-train --deployUrl=/ngxs-train/
+    - name: Deploy
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        build_dir: dist/ngxs-train
