@@ -16,7 +16,9 @@ jobs:
         node-version: '10.x'
     - run: npm ci
     - name: Building...
-      run: npx ng build --prod --baseHref=/ngxs-train --deployUrl=/ngxs-train/
+      run: | 
+        npx ng build --prod --baseHref=/ngxs-train --deployUrl=/ngxs-train/
+        cp ./dist/ngxs-train/index.html ./dist/ngxs-train/404.html
     - name: Deploy
       if: success()
       uses: crazy-max/ghaction-github-pages@v1
