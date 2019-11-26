@@ -8,15 +8,15 @@ import { CoreModule } from './core/core.module';
 import { AppStoreModule } from './store';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
     AppRoutingModule,
     AppStoreModule,
+  ],
+  declarations: [
+    AppComponent,
   ],
   bootstrap: [AppComponent],
 })

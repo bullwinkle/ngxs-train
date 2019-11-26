@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { SharedModule } from '@shared';
@@ -23,7 +22,6 @@ import { profileState } from './state';
   ],
   imports: [
     SharedModule,
-    HttpClientModule,
     ProfileRoutingModule,
     NgxsModule.forFeature(profileState),
   ],
